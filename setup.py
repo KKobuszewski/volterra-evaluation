@@ -37,7 +37,7 @@ print(dpath)
 
 ext_modules = [
     Extension( 'volterra',
-               sources             = ['volterra.pyx'],
+               sources             = ['src/volterra/volterra.pyx'],
                language            = 'c++',
                include_dirs        = [numpy.get_include(),'.'],
                extra_compile_args  = ['-std=c++11','-fopenmp','-pthread','-fPIC','-mtune=native','-march=native','-O3'],
@@ -52,6 +52,9 @@ ext_modules = [
 cython_directives = { 'embedsignature' : True,
                       'language_level' : str( sys.version_info.major ) }
 
+with open("README.md", 'r') as f:
+    long_description = f.read()
+
 setup(
     name = 'volterra',
     #cmdclass = {'build_ext': build_ext},
@@ -59,7 +62,7 @@ setup(
     #include_package_data=True, # PyInstaller may not find your C-Extensions
     #packages=find_packages('src/'),
     #package_dir={'':'src'},
-    #install_requires=[],       # additional packages that needs to be installed along with this package.
+    install_requires=['numpy'],       # additional packages that needs to be installed along with this package.
     ext_modules = cythonize( ext_modules, 
                              compiler_directives=cython_directives ),
 )
