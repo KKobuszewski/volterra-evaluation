@@ -1,0 +1,28 @@
+# ignore everything
+*
+
+# allow certain 
+#!models/
+!src/
+!requirements.txt
+#!pyproject.toml
+#!poetry.toml
+#!poetry.lock
+
+
+# additional blacklisting
+**/__pycache__
+
+# venv/
+# .venv/
+# .poetry_cache/
+# data/
+# .git/
+# .idea
+# **/__pycache__
+# .ipynb_checkpoints
+# .vscode/
+# .coverage
+# .cache
+# **/.pytest_cache
+# **/*.html
