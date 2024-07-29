@@ -18,12 +18,14 @@ RUN yum update && \
 # copy necessary stuff from repository (uses .dockerignore here?)
 WORKDIR /app
 COPY . .
+#RUN yum install git. && git clone https://github.com/KKobuszewski/volterra-evaluation.git
 
 # install dependencies for each python version 
-RUN for PYBIN in /opt/python/*/bin; do \
+RUN for PYBIN in /opt/python/cp310-*/bin; do \
      "${PYBIN}/pip" install --upgrade pip && \
      "${PYBIN}/pip" install --no-cache-dir -r requirements.txt; \
      done
+#RUN for PYBIN in /opt/python/*/bin; do \
 
 # using poetry
 #COPY poetry.lock poetry.toml pyproject.toml ./

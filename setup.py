@@ -40,7 +40,7 @@ ext_modules = [
                sources             = ['src/volterra/volterra.pyx'],
                language            = 'c++',
                include_dirs        = [numpy.get_include(),'.'],
-               extra_compile_args  = ['-std=c++11','-fopenmp','-pthread','-fPIC','-mtune=native','-march=native','-O3'],
+               extra_compile_args  = ['-std=c++11','-fopenmp','-pthread','-fPIC','-O3'],
                extra_link_args     = ['-fopenmp','-pthread'],
                libraries           = ['gomp','m'],
                library_dirs        = ['/usr/local/lib'],
